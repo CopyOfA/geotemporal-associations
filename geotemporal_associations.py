@@ -59,7 +59,7 @@ def id_geotemporal_associations(df, geo_difference_limit, time_difference_limit)
         tmp['dtg'].diff() <= pd.Timedelta(time_difference_limit, unit='minutes')
         ).astype(bool).tolist()
     
-    #where is the geo distance less than or equal to the 
+    #where is the geo distance less than or equal to the geo_difference_limit
     geo_difference_idx  = (
         column_haversine(np.array(tmp[['x','y']].values.tolist())) <= geo_difference_limit
         ).astype(bool).tolist()
